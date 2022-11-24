@@ -24,9 +24,26 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral text-neutral-content rounded-box w-52">
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/">Categories</Link></li>
                         <li><Link to="/blog">Blog</Link></li>
                         <li><Link to="/">Contact Us</Link></li>
+
+                        {
+                            user?.uid ?
+                                <>
+                                    <button onClick={handelLogOut} className="btn btn-warning mr-2.5">Logout</button>
+                                </>
+                                :
+                                <>
+                                    <Link to="/login">
+                                        <button className="btn btn-warning mr-2.5">Login</button>
+                                    </Link>
+                                    <Link to="/signup">
+                                        <button className="btn btn-warning mr-2.5">SignUp</button>
+                                    </Link>
+
+                                </>
+                        }
+
                     </ul>
                 </div>
                 <a href='/' className="btn btn-ghost normal-case text-xl">EASYLY</a>
@@ -34,13 +51,11 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/">Categories</Link></li>
                     <li><Link to="/blog">Blog</Link></li>
                     <li><Link to="/">Contact Us</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">
-
                 {
                     user?.uid ?
                         <>
