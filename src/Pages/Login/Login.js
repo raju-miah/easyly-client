@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Login = () => {
-
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+    const { loginUser } = useContext(AuthContext);
+
+    const [loginError, setLoginError] = useState('');
 
 
     const handelLogin = data => {
         console.log(data)
+
+        setLoginError('');
+
+        loginUser(data.email, data.password)
+            .then(result => {
+                const user = result.user
+                console.log(user)
+            })
+            .catch(error => {
+                console.log(error)
+                setLoginError(error.message);
+            })
     }
 
 
@@ -38,6 +54,11 @@ const Login = () => {
                         })} placeholder="Your Name" className="input input-bordered w-full max-w-xs" />
                         {errors.password && <p className='text-red-500'>{errors.password?.message}</p>}
                     </div>
+
+                    <div>
+                        {loginError && <p className='text-red-500'>{loginError}</p>}
+                    </div>
+
                     <input className='btn btn-accent w-full mt-7' value="Login" type="submit" />
                 </form>
                 <p>New to Easyly <Link to="/signup" className='text-success'>Create a new account?</Link></p>
