@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const { loginUser } = useContext(AuthContext);
+    const { loginUser, googleSignIn } = useContext(AuthContext);
 
     const [loginError, setLoginError] = useState('');
     const navigate = useNavigate();
@@ -21,6 +22,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                toast.success('Login Success');
                 navigate('/');
             })
             .catch(error => {
@@ -29,6 +31,19 @@ const Login = () => {
             })
     }
 
+
+    const handelGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                toast.success('Login Success');
+                navigate('/');
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     return (
         <div className='mt-20 flex justify-center items-center'>
@@ -63,10 +78,10 @@ const Login = () => {
 
                     <input className='btn btn-accent w-full mt-7' value="Login" type="submit" />
                 </form>
-                <p>New to Easyly <Link to="/signup" className='text-success'>Create a new account?</Link></p>
+                <p className='text-center mt-2'>New to Easyly <Link to="/signup" className='text-success'>Create a new account?</Link></p>
 
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <button onClick={handelGoogleSignIn} className='btn btn-warning w-full'>CONTINUE WITH GOOGLE</button>
             </div>
         </div>
     );

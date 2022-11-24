@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const SignUp = () => {
@@ -8,6 +9,8 @@ const SignUp = () => {
 
     const { signUpUser, updateUserInfo } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('');
+
+    const navigate = useNavigate();
 
 
     const handelSignUp = data => {
@@ -25,7 +28,10 @@ const SignUp = () => {
                 }
 
                 updateUserInfo(userInfo)
-                    .then(() => { })
+                    .then(() => {
+                        toast.success('SignUp Success');
+                        navigate('/');
+                    })
                     .catch(error => {
                         console.log(error);
                     })
@@ -35,7 +41,6 @@ const SignUp = () => {
                 setSignUpError(error.message);
             })
     }
-
 
 
     return (
@@ -93,10 +98,7 @@ const SignUp = () => {
                     </div>
                     <input className='btn btn-accent w-full mt-7' value="Sign Up" type="submit" />
                 </form>
-                <p>Already have a account? <Link to="/login" className='text-success'>Please login</Link></p>
-
-                <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <p className='text-center mt-2'>Already have a account? <Link to="/login" className='text-success'>Please login</Link></p>
             </div>
         </div>
     );
