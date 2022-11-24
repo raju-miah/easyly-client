@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Login = () => {
@@ -9,6 +9,7 @@ const Login = () => {
     const { loginUser } = useContext(AuthContext);
 
     const [loginError, setLoginError] = useState('');
+    const navigate = useNavigate();
 
 
     const handelLogin = data => {
@@ -20,6 +21,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                navigate('/');
             })
             .catch(error => {
                 console.log(error)
