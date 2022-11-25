@@ -23,6 +23,8 @@ const DashboardLayout = () => {
                                 {/* <!-- Navbar menu content here --> */}
                                 <li><Link to="/dashboard">My Orders</Link></li>
                                 <li><Link to="/dashboard/allusers">All Buyer and Seller</Link></li>
+                                <li><Link to="/dashboard/addproduct">Add Product</Link></li>
+                                <li><Link to="/dashboard/myproduct">My Product</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -34,7 +36,8 @@ const DashboardLayout = () => {
                         {/* <!-- Sidebar content here --> */}
                         <li><Link to="/dashboard">My Orders</Link></li>
                         <li><Link to="/dashboard/allusers">All Buyer and Seller</Link></li>
-
+                        <li><Link to="/dashboard/addproduct">Add Product</Link></li>
+                        <li><Link to="/dashboard/myproduct">My Product</Link></li>
                     </ul>
 
                 </div>
