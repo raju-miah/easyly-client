@@ -8,11 +8,12 @@ const ProductsCard = ({ pro, setBookingProduct }) => {
 
 
     return (
-        <div>
-            <div className="card w-[400px] mx-auto bg-cyan-300 shadow-xl">
-                <figure className="px-10 pt-10">
-                    <img src={img} alt="Shoes" className="rounded-xl" />
-                </figure>
+        <div className='mt-12'>
+
+            <div className="card lg:card-side bg-cyan-300 mx-12 shadow-xl">
+
+                <img src={img} alt="Shoes" className="rounded-xl" />
+
                 <div className="card-body">
                     <h2 className="card-title">Model Name: {name}</h2>
                     <p className='font-bold'>Location: {location}</p>
@@ -21,10 +22,9 @@ const ProductsCard = ({ pro, setBookingProduct }) => {
                     <p className='font-bold'>Year Of Use: {yearused} Years</p>
                     <p className='font-bold'>Condition: {condition}</p>
                     <p className='font-bold'>Time: {time}PM</p>
-                    <p className='font-bold'>Seller Name: {sellername} <span> <input type="checkbox" checked readOnly className="checkbox checkbox-accent" /></span></p>
+                    <p className='font-bold'>Seller Name: {sellername}</p>
                     <p className='font-bold'>Phone: {phonenumber}</p>
                     <p><strong>Details:</strong> {description}</p>
-
                     <div className="card-actions">
                         <label
                             onClick={() => setBookingProduct(pro)}

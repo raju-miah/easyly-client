@@ -16,7 +16,8 @@ const Products = () => {
         <div>
             <h2 className='text-5xl text-center'>Used {products.brandName} Brand Products</h2>
 
-            <div className='grid mt-8 mx-8 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            {/* className='grid mt-8 mx-8 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3' */}
+            <div>
                 {
                     product.map((pro, i) => <ProductsCard
                         key={i}
