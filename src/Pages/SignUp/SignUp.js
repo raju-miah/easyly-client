@@ -29,8 +29,9 @@ const SignUp = () => {
 
                 updateUserInfo(userInfo)
                     .then(() => {
+                        saveAllUserInfo(data.name, data.email, data.role);
                         toast.success('SignUp Success');
-                        navigate('/');
+
                     })
                     .catch(error => {
                         console.log(error);
@@ -42,6 +43,22 @@ const SignUp = () => {
             })
     }
 
+
+    const saveAllUserInfo = (name, email, role) => {
+        const allUser = { name, email, role };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(allUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('alluser', data)
+                navigate('/');
+            })
+    }
 
 
 
