@@ -83,7 +83,7 @@ const SignUp = () => {
                         <label className="label">
                             <span className="label-text">Your Email</span>
                         </label>
-                        <input type="text" {...register("email", {
+                        <input type="email" {...register("email", {
                             required: 'Email Address is required'
                         })} placeholder="Your Email" className="input input-bordered w-full max-w-xs" />
                         {errors.email && <p className='text-red-500'>{errors.email?.message}</p>}
@@ -97,8 +97,8 @@ const SignUp = () => {
                         <select {...register("role", { required: true })}
                             className="select select-bordered w-full max-w-xs"
                         >
-                            <option value="Buyer">Buyer</option>
-                            <option value="Seller">Seller</option>
+                            <option value="buyer">buyer</option>
+                            <option value="seller">seller</option>
                         </select>
                     </div>
 

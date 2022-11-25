@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider';
 
-const BookNowModal = ({ bookingProduct }) => {
+const BookNowModal = ({ bookingProduct, setBookingProduct }) => {
     const { name, resllprice } = bookingProduct;
 
     const { user } = useContext(AuthContext);
@@ -10,6 +11,7 @@ const BookNowModal = ({ bookingProduct }) => {
         event.preventDefault();
 
         const form = event.target;
+
         const name = form.name.value;
         const email = form.email.value;
         const productName = form.productName.value;
@@ -17,7 +19,39 @@ const BookNowModal = ({ bookingProduct }) => {
         const phoneNumber = form.phoneNumber.value;
         const location = form.location.value;
 
-        console.log(name, email, productName, price, phoneNumber, location);
+        const productBooking = {
+            buyerName: name,
+            buyerEmail: email,
+            productName,
+            price,
+            buyerPhoneNum: phoneNumber,
+            meetLocation: location
+        }
+
+        console.log(productBooking);
+
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(productBooking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    setBookingProduct(null);
+                    toast.success('Your Booking Confirmed');
+                }
+
+            })
+
+
+
+
+
+
 
     }
 
@@ -35,14 +69,14 @@ const BookNowModal = ({ bookingProduct }) => {
                             <label className="label">
                                 <span className="label-text text-xl font-bold">Buyer Name</span>
                             </label>
-                            <input name='name' type="text" defaultValue={user.displayName} readOnly className="input input-bordered w-full" />
+                            <input name='name' type="text" defaultValue={user?.displayName} readOnly className="input input-bordered w-full" />
                         </div>
 
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text text-xl font-bold">Buyer Email</span>
                             </label>
-                            <input name='email' type="text" defaultValue={user.email} readOnly className="input input-bordered w-full" />
+                            <input name='email' type="text" defaultValue={user?.email} readOnly className="input input-bordered w-full" />
                         </div>
 
                         <div className="form-control w-full">
