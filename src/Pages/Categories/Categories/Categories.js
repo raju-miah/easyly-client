@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
+import CategoriesCard from './CategoriesCard';
 
 const Categories = () => {
 
@@ -20,21 +20,15 @@ const Categories = () => {
 
     return (
         <div className='mt-10'>
-            <h2 className='text-5xl text-center'>Products Categories</h2>
-            <div className='grid mt-8 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <h2 className='text-5xl text-center'>Our Used Laptop Categories</h2>
+            <div className='grid mt-8 mx-8 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
-                    category.map((categories, i) => <div
-                        key={i}
+                    category.map(categori => <CategoriesCard
+                        key={categori._id}
+                        categori={categori}
                     >
-                        <Link to={`/categories/${categories.categoryId}`}>
-                            <div className="card text-white p-6 m-12 md:card-side shadow-xl bg-accent">
-                                <div className="card-body">
-                                    <h2 className="text-5xl text-center font-bold">{categories.brandName}</h2>
-                                </div>
-                            </div>
-                        </Link>
 
-                    </div>)
+                    </CategoriesCard>)
                 }
             </div>
 
