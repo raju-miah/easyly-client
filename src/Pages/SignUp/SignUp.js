@@ -22,6 +22,7 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                toast.success('SignUp Success');
 
                 const userInfo = {
                     displayName: data.name
@@ -30,7 +31,6 @@ const SignUp = () => {
                 updateUserInfo(userInfo)
                     .then(() => {
                         saveAllUserInfo(data.name, data.email, data.role);
-                        toast.success('SignUp Success');
 
                     })
                     .catch(error => {
@@ -64,7 +64,7 @@ const SignUp = () => {
 
     return (
         <div className='mt-20 flex justify-center items-center'>
-            <div className='w-96 p-7 border'>
+            <div className='w-96 p-7 border bg-green-100'>
                 <h2 className='text-5xl text-center'>Sign Up</h2>
 
                 <form onSubmit={handleSubmit(handelSignUp)}>
@@ -74,7 +74,7 @@ const SignUp = () => {
                             <span className="label-text">Your Name</span>
                         </label>
                         <input type="text" {...register("name", {
-                            required: 'Name Address is required'
+                            required: 'Name is required'
                         })} placeholder="Your Name" className="input input-bordered w-full max-w-xs" />
                         {errors.name && <p className='text-red-500'>{errors.name?.message}</p>}
                     </div>

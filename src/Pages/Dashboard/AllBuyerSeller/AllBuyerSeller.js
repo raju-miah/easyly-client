@@ -26,6 +26,7 @@ const AllBuyerSeller = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Buyer / Seller / Admin</th>
+                            <th>Delete : Buyer / Seller</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,6 +39,11 @@ const AllBuyerSeller = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role}</td>
+                                <td>
+
+                                    <button className='btn btn-sm btn-error'>Delete</button>
+
+                                </td>
                             </tr>)
                         }
 
