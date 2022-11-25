@@ -53,7 +53,7 @@ const Categories = () => {
                     <p className='font-bold'>Original Price: 40000 TK</p>
                     <p className='font-bold'>Year Of Use: 2 Years</p>
                     <p className='font-bold'>Time: 09:27 pm</p>
-                    <p className='font-bold'>Seller Name: John Duo <span> <input type="checkbox" checked className="checkbox checkbox-accent" /></span></p>
+                    <p className='font-bold'>Seller Name: John Duo <span> <input type="checkbox" checked readOnly className="checkbox checkbox-accent" /></span></p>
 
                     <div className="card-actions">
                         <button className="btn btn-primary">Buy Now</button>

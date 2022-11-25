@@ -43,6 +43,8 @@ const SignUp = () => {
     }
 
 
+
+
     return (
         <div className='mt-20 flex justify-center items-center'>
             <div className='w-96 p-7 border'>
@@ -75,7 +77,7 @@ const SignUp = () => {
                         <label className="label">
                             <span className="label-text">Chose Your Option</span>
                         </label>
-                        <select {...register("category", { required: true })}
+                        <select {...register("role", { required: true })}
                             className="select select-bordered w-full max-w-xs"
                         >
                             <option value="Buyer">Buyer</option>
