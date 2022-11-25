@@ -2,9 +2,9 @@
 
 # Live-Site Link: 
 
-# adminEmail: easyly@admin.com
+adminEmail: easyly@admin.com
 
-# adminPassword: 123456
+adminPassword: 123456
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
