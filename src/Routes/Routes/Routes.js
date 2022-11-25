@@ -9,6 +9,7 @@ import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders"
 import MyProduct from "../../Pages/Dashboard/MyProduct/MyProduct"
 import Home from "../../Pages/Home/Home/Home"
 import Login from "../../Pages/Login/Login"
+import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage"
 import SignUp from "../../Pages/SignUp/SignUp"
 import PrivateRoute from "../PrivateRoute/PrivateRoute"
 
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
                 element: <MyProduct></MyProduct>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <ErrorPage></ErrorPage>
     }
 ])
 
