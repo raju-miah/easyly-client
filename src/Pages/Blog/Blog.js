@@ -6,7 +6,7 @@ const Blog = () => {
             <h2 className='text-5xl text-center mt-10'>Blog</h2>
             <div className='border-2 rounded-lg mx-5 mt-10 border-stone-900'>
 
-                <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-teal-400 rounded  w-4/5 mx-auto mt-10 mb-10">
+                <div tabIndex={0} className="collapse collapse-arrow border bg-green-100 rounded  w-4/5 mx-auto mt-10 mb-10">
                     <div className="collapse-title text-xl font-medium">
                         What are the different ways to manage a state in a React application?
                     </div>
@@ -36,7 +36,7 @@ const Blog = () => {
                     </div>
                 </div>
 
-                <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-teal-400 rounded w-4/5 mx-auto mb-10">
+                <div tabIndex={0} className="collapse collapse-arrow border  bg-green-100 rounded w-4/5 mx-auto mb-10">
                     <div className="collapse-title text-xl font-medium">
                         How does prototypical inheritance work?
                     </div>
@@ -45,7 +45,7 @@ const Blog = () => {
                     </div>
                 </div>
 
-                <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-teal-400 rounded w-4/5 mx-auto mb-10">
+                <div tabIndex={0} className="collapse collapse-arrow border  bg-green-100 rounded w-4/5 mx-auto mb-10">
                     <div className="collapse-title text-xl font-medium">
                         What is a unit test?
                     </div>
@@ -54,7 +54,7 @@ const Blog = () => {
                     </div>
                 </div>
 
-                <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-teal-400 rounded w-4/5 mx-auto mb-10">
+                <div tabIndex={0} className="collapse collapse-arrow border  bg-green-100 rounded w-4/5 mx-auto mb-10">
                     <div className="collapse-title text-xl font-medium">
                         Why should we write unit tests?
                     </div>
@@ -63,7 +63,7 @@ const Blog = () => {
                     </div>
                 </div>
 
-                <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-teal-400 rounded w-4/5 mx-auto mb-10">
+                <div tabIndex={0} className="collapse collapse-arrow border  bg-green-100 rounded w-4/5 mx-auto mb-10">
                     <div className="collapse-title text-xl font-medium">
                         React vs. Angular vs. Vue?
                     </div>
