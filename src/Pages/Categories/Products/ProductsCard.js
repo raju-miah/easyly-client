@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ProductsCard = ({ pro }) => {
-    console.log(pro)
+const ProductsCard = ({ pro, setBookingProduct }) => {
+    // console.log(pro)
 
     const { img, name, location, resllprice, originalprice, yearused, time, sellername, condition, description, phonenumber } = pro;
 
@@ -9,7 +9,7 @@ const ProductsCard = ({ pro }) => {
 
     return (
         <div>
-            <div className="card w-[400px] mx-auto bg-amber-300 shadow-xl">
+            <div className="card w-[400px] mx-auto bg-cyan-300 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={img} alt="Shoes" className="rounded-xl" />
                 </figure>
@@ -23,11 +23,15 @@ const ProductsCard = ({ pro }) => {
                     <p className='font-bold'>Time: {time}PM</p>
                     <p className='font-bold'>Seller Name: {sellername} <span> <input type="checkbox" checked readOnly className="checkbox checkbox-accent" /></span></p>
                     <p className='font-bold'>Phone: {phonenumber}</p>
-                    <p>Details: {description}</p>
+                    <p><strong>Details:</strong> {description}</p>
 
                     <div className="card-actions">
-                        <button className="btn btn-primary">Buy Now</button>
-                        <button className="btn btn-primary">Buy Now</button>
+                        <label
+                            onClick={() => setBookingProduct(pro)}
+                            htmlFor="book=now-modal"
+                            className="btn btn-warning">
+                            BOOK NOW
+                        </label>
                     </div>
                 </div>
             </div>
