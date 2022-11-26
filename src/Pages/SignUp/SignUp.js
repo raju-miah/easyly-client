@@ -49,11 +49,11 @@ const SignUp = () => {
                 const user = result.user
                 console.log(user)
                 toast.success('SignUp Success');
-                const role = "buyer";
+                // const role = "buyer";
 
-                saveAllUserInfo(user.displayName, user.email, role);
+                saveGoogleUser(user.displayName, user.email);
 
-                // navigate('/');
+                navigate('/');
             })
             .catch(error => {
                 console.log(error)
@@ -77,6 +77,25 @@ const SignUp = () => {
             .then(data => {
                 console.log('alluser', data)
             })
+    }
+
+
+    const saveGoogleUser = (name, email) => {
+        const googleUser = { name, email };
+        console.log(googleUser);
+
+        fetch('http://localhost:5000/users', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(googleUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('googleUser', data)
+            })
+
     }
 
 

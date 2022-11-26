@@ -41,13 +41,46 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
-                toast.success('Login Success');
+                toast.success('SignUp Success');
+                // const role = "buyer";
+
+                saveGoogleUser(user.displayName, user.email);
+
                 navigate('/');
             })
             .catch(error => {
                 console.log(error)
             })
     }
+
+
+    const saveGoogleUser = (name, email) => {
+        const googleUser = { name, email };
+        console.log(googleUser);
+
+        fetch('http://localhost:5000/users', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(googleUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('googleUser', data)
+            })
+
+    }
+
+
+
+
+
+
+
+
+
+
 
     return (
         <div className='mt-20 flex justify-center items-center'>
