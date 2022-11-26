@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const MyProduct = () => {
@@ -38,6 +39,11 @@ const MyProduct = () => {
     }
 
 
+    const handelAdvertiseProduct = add => {
+        console.log(add)
+    }
+
+
 
     return (
         <div>
@@ -46,6 +52,11 @@ const MyProduct = () => {
                 myproduct.length === 0 ?
                     <>
                         <h2 className='text-5xl text-center mt-3 mb-5'>You don't added any product</h2>
+                        <div className='flex items-center justify-center'>
+                            <Link to="/dashboard/addproduct">
+                                <button className='btn btn-warning'>Go Add Product</button>
+                            </Link>
+                        </div>
                     </>
                     :
                     <>
@@ -86,13 +97,15 @@ const MyProduct = () => {
                                                 </div>
                                             </td>
                                             <td>{product.name}</td>
-                                            <td>{product.resllprice}</td>
+                                            <td>${product.resllprice}</td>
                                             <td>
                                                 Available or Sold
                                             </td>
 
                                             <td>
-                                                <button className='btn btn-warning'>Advertise</button>
+                                                <button
+                                                    onClick={() => { handelAdvertiseProduct(product) }}
+                                                    className='btn btn-warning'>Advertise</button>
                                             </td>
 
                                             <td>

@@ -17,11 +17,23 @@ const DashboardLayout = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                             </label>
                         </div>
-                        <div className="flex-1 px-2 mx-2">Dashboard Navbar</div>
+                        <div className="flex-1 px-2 mx-2 text-3xl font-bold">Dashboard Navbar</div>
                         <div className="flex-none hidden lg:block">
                             <ul className="menu menu-horizontal">
                                 {/* <!-- Navbar menu content here --> */}
-                                <li><Link to="/dashboard">My Orders</Link></li>
+                                <li><Link to="/dashboard">
+                                    <button className='btn btn-warning'>My Orders</button>
+                                </Link></li>
+
+                                <li><Link to="/dashboard/allseller">
+                                    <button className='btn btn-warning'>All Seller</button>
+                                </Link></li>
+
+                                <li><Link to="/dashboard/allbuyer">
+                                    <button className='btn btn-warning'>All Buyer</button>
+                                </Link></li>
+
+
                                 <li><Link to="/dashboard/allusers">All Buyer and Seller</Link></li>
                                 <li><Link to="/dashboard/addproduct">Add Product</Link></li>
                                 <li><Link to="/dashboard/myproduct">My Product</Link></li>
@@ -34,7 +46,20 @@ const DashboardLayout = () => {
                     <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100">
                         {/* <!-- Sidebar content here --> */}
-                        <li><Link to="/dashboard">My Orders</Link></li>
+                        <li><Link to="/dashboard">
+                            <button className='btn btn-warning'>My Orders</button>
+                        </Link></li>
+
+                        <li><Link to="/dashboard/allseller">
+                            <button className='btn btn-warning'>All Seller</button>
+                        </Link></li>
+
+
+                        <li><Link to="/dashboard/allbuyer">
+                            <button className='btn btn-warning'>All Buyer</button>
+                        </Link></li>
+
+
                         <li><Link to="/dashboard/allusers">All Buyer and Seller</Link></li>
                         <li><Link to="/dashboard/addproduct">Add Product</Link></li>
                         <li><Link to="/dashboard/myproduct">My Product</Link></li>
