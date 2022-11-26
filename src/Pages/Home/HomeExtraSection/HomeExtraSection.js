@@ -28,8 +28,7 @@ const HomeExtraSection = () => {
                         />
                     </div>
                     <p className="text-xl my-4 text-gray-500">
-                        "Neque cupiditate assumenda in maiores repudiandae mollitia architecto elit sed
-                        adipiscing elit."
+                        "I was really happy for this site service, very trusted. if you want to buy a resell used laptop just go for it."
                     </p>
                     <p className="italic">- Teresa May</p>
                 </div>
