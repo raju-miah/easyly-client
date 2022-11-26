@@ -8,9 +8,7 @@ const Products = () => {
     const [bookingProduct, setBookingProduct] = useState(null);
 
     const products = useLoaderData();
-    // console.log(products.brandName)
-    const product = products.data;
-    // console.log(product);
+
 
     return (
         <div>
@@ -19,7 +17,7 @@ const Products = () => {
             {/* className='grid mt-8 mx-8 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3' */}
             <div>
                 {
-                    product.map((pro, i) => <ProductsCard
+                    products.map((pro, i) => <ProductsCard
                         key={i}
                         pro={pro}
                         setBookingProduct={setBookingProduct}

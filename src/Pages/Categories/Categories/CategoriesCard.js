@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CategoriesCard = ({ categori }) => {
 
-    const { _id, brandName, logo } = categori;
+    const { brandName, logo } = categori;
 
     return (
         <div>
@@ -13,7 +13,7 @@ const CategoriesCard = ({ categori }) => {
                 <div className="card-body">
                     <h2 className="text-5xl text-bold">{brandName}</h2>
                     <div className="card-actions justify-end">
-                        <Link to={`/category/${_id}`}>
+                        <Link to={`/category/${brandName}`}>
                             <button className="btn btn-warning">View Products</button>
                         </Link>
                     </div>

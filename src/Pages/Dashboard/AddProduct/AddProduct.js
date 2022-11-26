@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const AddProduct = () => {
@@ -7,9 +9,29 @@ const AddProduct = () => {
 
     const { user } = useContext(AuthContext);
 
+    const navigate = useNavigate();
+
 
     const handelAddProducts = data => {
+        data.email = user.email;
         console.log(data);
+
+
+        fetch('http://localhost:5000/addproducts', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('Your Product added successfully');
+                    navigate('/dashboard/myproduct');
+                }
+
+            })
     }
 
     return (
@@ -127,13 +149,6 @@ const AddProduct = () => {
                         </div>
 
 
-
-
-
-
-
-
-
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Select Date and Time</span>
@@ -148,12 +163,12 @@ const AddProduct = () => {
                             <label className="label">
                                 <span className="label-text">Select Product Brand Name</span>
                             </label>
-                            <select {...register("categoryname", { required: true })}
+                            <select {...register("brandName", { required: true })}
                                 className="select select-bordered w-full"
                             >
                                 <option value="Dell">Dell</option>
                                 <option value="Apple">Apple</option>
-                                <option value="Apple">Asus</option>
+                                <option value="Asus">Asus</option>
                             </select>
                         </div>
 
