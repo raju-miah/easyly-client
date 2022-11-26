@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const AllBuyerSeller = () => {
 
-    const { data: users = [] } = useQuery({
+    const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/users');
@@ -12,6 +13,28 @@ const AllBuyerSeller = () => {
         }
     })
 
+    // console.log(users)
+
+
+    // delete users
+
+    const handelDeleteUsers = id => {
+        console.log(id);
+
+
+        fetch(`http://localhost:5000/users/${id}`, {
+            method: 'DELETE',
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount > 0) {
+                    toast.success('Deleted Successfully');
+                    refetch();
+                }
+            })
+    }
 
     return (
         <div>
@@ -25,26 +48,33 @@ const AllBuyerSeller = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Buyer / Seller / Admin</th>
+                            <th>Buyer / Seller</th>
                             <th>Delete : Buyer / Seller</th>
                         </tr>
                     </thead>
                     <tbody>
 
                         {
-                            users.map((user, i) => <tr
-                                key={user._id}
-                            >
-                                <th>{1 + i}</th>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
-                                <td>{user.role}</td>
-                                <td>
+                            users.map((user, i) => {
 
-                                    <button className='btn btn-sm btn-error'>Delete</button>
+                                return user.role !== "admin" && <tr
+                                    key={user._id}
+                                >
+                                    <th>{0 + i}</th>
+                                    <td>{user.name}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.role}</td>
+                                    <td>
 
-                                </td>
-                            </tr>)
+                                        <button
+                                            onClick={() => handelDeleteUsers(user._id)}
+
+                                            className='btn btn-sm btn-error'>Delete</button>
+
+                                    </td>
+                                </tr>
+
+                            })
                         }
 
 

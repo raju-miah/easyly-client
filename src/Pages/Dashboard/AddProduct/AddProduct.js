@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const AddProduct = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+    const { user } = useContext(AuthContext);
 
 
     const handelAddProducts = data => {
@@ -12,56 +15,163 @@ const AddProduct = () => {
     return (
         <div>
             <h2 className='text-5xl text-center mt-3 mb-5'>Add Your Product</h2>
-            <div className='mt-20 flex justify-center items-center'>
-                <div className='w-96 p-7 border bg-green-100'>
+            <div className='mt-12 flex justify-center items-center '>
+                <div className='w-[700px] max-md:w-96 p-7 border rounded-lg bg-green-100'>
 
                     <form onSubmit={handleSubmit(handelAddProducts)}>
 
-                        <div className="form-control w-full max-w-xs">
+                        <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text">Your Name</span>
+                                <span className="label-text">Product Name</span>
                             </label>
                             <input type="text" {...register("name", {
                                 required: 'Name is required'
-                            })} placeholder="Your Name" className="input input-bordered w-full max-w-xs" />
+                            })} className="input input-bordered w-full " />
                             {errors.name && <p className='text-red-500'>{errors.name?.message}</p>}
                         </div>
 
-                        <div className="form-control w-full max-w-xs">
+                        <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text">Your Email</span>
+                                <span className="label-text">Product Image URL</span>
                             </label>
-                            <input type="email" {...register("email", {
-                                required: 'Email Address is required'
-                            })} placeholder="Your Email" className="input input-bordered w-full max-w-xs" />
-                            {errors.email && <p className='text-red-500'>{errors.email?.message}</p>}
+                            <input type="text" {...register("img", {
+                                required: 'img is required'
+                            })} className="input input-bordered w-full " />
+                            {errors.img && <p className='text-red-500'>{errors.img?.message}</p>}
+                        </div>
+
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Meet Location</span>
+                            </label>
+                            <input type="text" {...register("location", {
+                                required: 'location is required'
+                            })} className="input input-bordered w-full " />
+                            {errors.location && <p className='text-red-500'>{errors.location?.message}</p>}
                         </div>
 
 
-                        <div className="form-control w-full max-w-xs">
+                        <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text">Chose Your Option</span>
+                                <span className="label-text">Your Resell Price</span>
                             </label>
-                            <select {...register("role", { required: true })}
-                                className="select select-bordered w-full max-w-xs"
+                            <input type="text" {...register("resllprice", {
+                                required: 'Resell Price is required'
+                            })} className="input input-bordered w-full " />
+                            {errors.resllprice && <p className='text-red-500'>{errors.resllprice?.message}</p>}
+                        </div>
+
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Product Original Price</span>
+                            </label>
+                            <input type="text" {...register("originalprice", {
+                                required: 'Original Price is required'
+                            })} className="input input-bordered w-full " />
+                            {errors.originalprice && <p className='text-red-500'>{errors.originalprice?.message}</p>}
+                        </div>
+
+
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">How many Years Used this Product</span>
+                            </label>
+                            <input type="text" {...register("yearused", {
+                                required: 'Used Year is required'
+                            })} className="input input-bordered w-full " />
+                            {errors.yearused && <p className='text-red-500'>{errors.yearused?.message}</p>}
+                        </div>
+
+
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Your Name</span>
+                            </label>
+                            <input type="text" {...register("sellername", {
+                                required: 'Seller name is required'
+                            })} defaultValue={user?.displayName} readOnly className="input input-bordered w-full " />
+                            {errors.sellername && <p className='text-red-500'>{errors.sellername?.message}</p>}
+                        </div>
+
+
+                        {/* <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Product Details</span>
+                            </label>
+                            <input type="text" {...register("description", {
+                                required: 'Description is required'
+                            })} className="input input-bordered w-full " />
+                            {errors.description && <p className='text-red-500'>{errors.description?.message}</p>}
+                        </div> */}
+
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Product Description</span>
+                            </label>
+                            <textarea {...register("description")} placeholder="About you"
+                                className="textarea textarea-bordered w-full h-[145px]" />
+                            {errors.description && <p className='text-red-500'>{errors.description?.message}</p>}
+                        </div>
+
+
+
+
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Contact Number</span>
+                            </label>
+                            <input type="text" {...register("phonenumber", {
+                                required: 'Contact Number is required'
+                            })} className="input input-bordered w-full " />
+                            {errors.phonenumber && <p className='text-red-500'>{errors.phonenumber?.message}</p>}
+                        </div>
+
+
+
+
+
+
+
+
+
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Select Date and Time</span>
+                            </label>
+                            <input type="datetime-local" {...register("time", {
+                                required: 'date time is required'
+                            })} placeholder="Your Name" className="input input-bordered w-full " />
+                            {errors.name && <p className='text-red-500'>{errors.name?.message}</p>}
+                        </div>
+
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Select Product Brand Name</span>
+                            </label>
+                            <select {...register("categoryname", { required: true })}
+                                className="select select-bordered w-full"
                             >
-                                <option value="buyer">buyer</option>
-                                <option value="seller">seller</option>
+                                <option value="Dell">Dell</option>
+                                <option value="Apple">Apple</option>
+                                <option value="Apple">Asus</option>
                             </select>
                         </div>
 
-                        <div className="form-control w-full max-w-xs">
+
+                        <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text">Condition</span>
                             </label>
-                            <input type="password" {...register("password", {
-                                required: 'Password is required',
-                                minLength: { value: 6, message: "Password must be 6 characters or more longer" }
-                            })} placeholder="Your Password" className="input input-bordered w-full max-w-xs" />
-                            {errors.password && <p className='text-red-500'>{errors.password?.message}</p>}
+                            <select {...register("condition", { required: true })}
+                                className="select select-bordered w-full"
+                            >
+                                <option value="good">good</option>
+                                <option value="fair">fair</option>
+                                <option value="excellent">excellent</option>
+                            </select>
                         </div>
 
-                        <input className='btn btn-accent w-full mt-7' value="Sign Up" type="submit" />
+                        <input className='btn btn-accent w-full mt-7' value="Add Product" type="submit" />
                     </form>
                 </div>
             </div>

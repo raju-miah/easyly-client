@@ -7,7 +7,7 @@ import { AuthContext } from '../../context/AuthProvider';
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const { signUpUser, updateUserInfo } = useContext(AuthContext);
+    const { signUpUser, updateUserInfo, googleSignIn } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('');
 
     const navigate = useNavigate();
@@ -31,7 +31,7 @@ const SignUp = () => {
                 updateUserInfo(userInfo)
                     .then(() => {
                         saveAllUserInfo(data.name, data.email, data.role);
-
+                        navigate('/');
                     })
                     .catch(error => {
                         console.log(error);
@@ -43,9 +43,29 @@ const SignUp = () => {
             })
     }
 
+    const handelGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                toast.success('SignUp Success');
+                const role = "buyer";
+
+                saveAllUserInfo(user.displayName, user.email, role);
+
+                // navigate('/');
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
 
     const saveAllUserInfo = (name, email, role) => {
         const allUser = { name, email, role };
+
+        console.log(allUser)
+
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -56,7 +76,6 @@ const SignUp = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('alluser', data)
-                navigate('/');
             })
     }
 
@@ -64,7 +83,7 @@ const SignUp = () => {
 
     return (
         <div className='mt-20 flex justify-center items-center'>
-            <div className='w-96 p-7 border bg-green-100'>
+            <div className='w-96 p-7 border rounded-lg bg-green-100'>
                 <h2 className='text-5xl text-center'>Sign Up</h2>
 
                 <form onSubmit={handleSubmit(handelSignUp)}>
@@ -118,6 +137,9 @@ const SignUp = () => {
                     <input className='btn btn-accent w-full mt-7' value="Sign Up" type="submit" />
                 </form>
                 <p className='text-center mt-2'>Already have a account? <Link to="/login" className='text-success'>Please login</Link></p>
+
+                <div className="divider">OR</div>
+                <button onClick={handelGoogleSignIn} className='btn btn-warning w-full'>CONTINUE WITH GOOGLE</button>
             </div>
         </div>
     );
