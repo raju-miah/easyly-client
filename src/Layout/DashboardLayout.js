@@ -33,10 +33,17 @@ const DashboardLayout = () => {
                                     <button className='btn btn-warning'>All Buyer</button>
                                 </Link></li>
 
+                                <li><Link to="/dashboard/allusers">
+                                    <button className='btn btn-warning'>All Buyer and Seller</button>
+                                </Link></li>
 
-                                <li><Link to="/dashboard/allusers">All Buyer and Seller</Link></li>
-                                <li><Link to="/dashboard/addproduct">Add Product</Link></li>
-                                <li><Link to="/dashboard/myproduct">My Product</Link></li>
+                                <li><Link to="/dashboard/addproduct">
+                                    <button className='btn btn-warning'>Add Product</button>
+                                </Link></li>
+
+                                <li><Link to="/dashboard/myproduct">
+                                    <button className='btn btn-warning'>My Product</button>
+                                </Link></li>
                             </ul>
                         </div>
                     </div>
@@ -60,9 +67,17 @@ const DashboardLayout = () => {
                         </Link></li>
 
 
-                        <li><Link to="/dashboard/allusers">All Buyer and Seller</Link></li>
-                        <li><Link to="/dashboard/addproduct">Add Product</Link></li>
-                        <li><Link to="/dashboard/myproduct">My Product</Link></li>
+                        <li><Link to="/dashboard/allusers">
+                            <button className='btn btn-warning'>All Buyer and Seller</button>
+                        </Link></li>
+
+                        <li><Link to="/dashboard/addproduct">
+                            <button className='btn btn-warning'>Add Product</button>
+                        </Link></li>
+
+                        <li><Link to="/dashboard/myproduct">
+                            <button className='btn btn-warning'>My Product</button>
+                        </Link></li>
                     </ul>
 
                 </div>

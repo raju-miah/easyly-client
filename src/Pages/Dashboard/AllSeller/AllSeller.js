@@ -46,6 +46,7 @@ const AllSeller = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Category</th>
+                            <th>Verify Seller</th>
                             <th>Delete a Seller</th>
                         </tr>
                     </thead>
@@ -57,10 +58,16 @@ const AllSeller = () => {
                                 return user.role === "seller" && <tr
                                     key={user._id}
                                 >
-                                    <th>{-1 + i}</th>
+                                    <th>{0 + i}</th>
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
                                     <td>{user.role}</td>
+                                    <td>
+
+                                        <button className='btn btn-sm btn-success'>
+                                            Verify
+                                        </button>
+                                    </td>
                                     <td>
 
                                         <button
