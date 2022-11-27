@@ -23,8 +23,20 @@ const MyProduct = () => {
     const handelDeleteProduct = id => {
         console.log(id);
 
-
         fetch(`http://localhost:5000/myproduct/${id}`, {
+            method: 'DELETE',
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount > 0) {
+                    toast.success('Deleted Successfully');
+                    refetch();
+                }
+            })
+
+        fetch(`http://localhost:5000/advertise/${id}`, {
             method: 'DELETE',
 
         })
@@ -39,8 +51,38 @@ const MyProduct = () => {
     }
 
 
-    const handelAdvertiseProduct = add => {
-        console.log(add)
+    const handelAdvertiseProduct = (add) => {
+        // console.log(add)
+
+        // , _id
+        // add.id = _id
+
+        // setDis(true);
+        // setDis(true);
+        // delete add._id
+        // const body = {
+        //     ...add
+        // }
+        // console.log(body)
+
+        fetch('http://localhost:5000/advertise', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(add)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    toast.success('Your Advertise posted successfully');
+
+                }
+
+            })
+
+
     }
 
 
@@ -103,6 +145,9 @@ const MyProduct = () => {
                                             </td>
 
                                             <td>
+
+                                                {/* , product._id */}
+
                                                 <button
                                                     onClick={() => { handelAdvertiseProduct(product) }}
                                                     className='btn btn-warning'>Advertise</button>

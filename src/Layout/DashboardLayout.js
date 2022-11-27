@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../context/AuthProvider';
+import useAdmin from '../hooks/useAdmin';
+import useBuyer from '../hooks/useBuyer';
+import useSeller from '../hooks/useSeller';
 import Footer from '../Pages/Shared/Footer/Footer';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 
 const DashboardLayout = () => {
+
+    const { user } = useContext(AuthContext);
+
+
+    const [isAdmin] = useAdmin(user?.email);
+
+    const [isBuyer] = useBuyer(user?.email);
+
+    const [isSeller] = useSeller(user?.email);
+
+
+    // console.log(isAdmin);
+    // console.log(user.email);
+
     return (
         <div>
             <Navbar></Navbar>
@@ -21,29 +39,47 @@ const DashboardLayout = () => {
                         <div className="flex-none hidden lg:block">
                             <ul className="menu menu-horizontal">
                                 {/* <!-- Navbar menu content here --> */}
-                                <li><Link to="/dashboard">
-                                    <button className='btn btn-warning'>My Orders</button>
-                                </Link></li>
 
-                                <li><Link to="/dashboard/allseller">
-                                    <button className='btn btn-warning'>All Seller</button>
-                                </Link></li>
+                                {
+                                    isBuyer && <>
 
-                                <li><Link to="/dashboard/allbuyer">
-                                    <button className='btn btn-warning'>All Buyer</button>
-                                </Link></li>
+                                        <li><Link to="/dashboard/myorder">
+                                            <button className='btn btn-warning'>My Orders</button>
+                                        </Link></li>
 
-                                <li><Link to="/dashboard/allusers">
-                                    <button className='btn btn-warning'>All Buyer and Seller</button>
-                                </Link></li>
+                                    </>
+                                }
 
-                                <li><Link to="/dashboard/addproduct">
-                                    <button className='btn btn-warning'>Add Product</button>
-                                </Link></li>
+                                {
+                                    isAdmin && <>
+                                        <li><Link to="/dashboard/allseller">
+                                            <button className='btn btn-warning'>All Seller</button>
+                                        </Link></li>
 
-                                <li><Link to="/dashboard/myproduct">
-                                    <button className='btn btn-warning'>My Product</button>
-                                </Link></li>
+                                        <li><Link to="/dashboard/allbuyer">
+                                            <button className='btn btn-warning'>All Buyer</button>
+                                        </Link></li>
+
+                                        {/* <li><Link to="/dashboard/allusers">
+                                            <button className='btn btn-warning'>All Buyer and Seller</button>
+                                        </Link></li> */}
+                                    </>
+                                }
+
+                                {
+                                    isSeller && <>
+
+                                        <li><Link to="/dashboard/addproduct">
+                                            <button className='btn btn-warning'>Add Product</button>
+                                        </Link></li>
+
+                                        <li><Link to="/dashboard/myproduct">
+                                            <button className='btn btn-warning'>My Product</button>
+                                        </Link></li>
+
+                                    </>
+                                }
+
                             </ul>
                         </div>
                     </div>
@@ -53,31 +89,50 @@ const DashboardLayout = () => {
                     <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100">
                         {/* <!-- Sidebar content here --> */}
-                        <li><Link to="/dashboard">
-                            <button className='btn btn-warning'>My Orders</button>
-                        </Link></li>
 
-                        <li><Link to="/dashboard/allseller">
-                            <button className='btn btn-warning'>All Seller</button>
-                        </Link></li>
+                        {
+                            isBuyer && <>
+
+                                <li><Link to="/dashboard/myorder">
+                                    <button className='btn btn-warning'>My Orders</button>
+                                </Link></li>
+
+                            </>
+                        }
+
+                        {
+                            isAdmin && <>
+
+                                <li><Link to="/dashboard/allseller">
+                                    <button className='btn btn-warning'>All Seller</button>
+                                </Link></li>
 
 
-                        <li><Link to="/dashboard/allbuyer">
-                            <button className='btn btn-warning'>All Buyer</button>
-                        </Link></li>
+                                <li><Link to="/dashboard/allbuyer">
+                                    <button className='btn btn-warning'>All Buyer</button>
+                                </Link></li>
 
+                                {/* <li><Link to="/dashboard/allusers">
+                                    <button className='btn btn-warning'>All Buyer and Seller</button>
+                                </Link></li> */}
 
-                        <li><Link to="/dashboard/allusers">
-                            <button className='btn btn-warning'>All Buyer and Seller</button>
-                        </Link></li>
+                            </>
+                        }
 
-                        <li><Link to="/dashboard/addproduct">
-                            <button className='btn btn-warning'>Add Product</button>
-                        </Link></li>
+                        {
+                            isSeller && <>
 
-                        <li><Link to="/dashboard/myproduct">
-                            <button className='btn btn-warning'>My Product</button>
-                        </Link></li>
+                                <li><Link to="/dashboard/addproduct">
+                                    <button className='btn btn-warning'>Add Product</button>
+                                </Link></li>
+
+                                <li><Link to="/dashboard/myproduct">
+                                    <button className='btn btn-warning'>My Product</button>
+                                </Link></li>
+
+                            </>
+                        }
+
                     </ul>
 
                 </div>
