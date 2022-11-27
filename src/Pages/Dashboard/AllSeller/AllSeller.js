@@ -42,7 +42,7 @@ const AllSeller = () => {
 
                     <thead>
                         <tr>
-                            <th></th>
+
                             <th>Name</th>
                             <th>Email</th>
                             <th>Category</th>
@@ -53,12 +53,12 @@ const AllSeller = () => {
                     <tbody>
 
                         {
-                            users.map((user, i) => {
+                            users.map(user => {
 
                                 return user.role === "seller" && <tr
                                     key={user._id}
                                 >
-                                    <th>{0 + i}</th>
+
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
                                     <td>{user.role}</td>

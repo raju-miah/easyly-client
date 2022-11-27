@@ -22,13 +22,24 @@ const AdvertiseHome = () => {
 
     return (
         <div className='mt-12'>
-            <h2 className='text-5xl text-center mb-5'>Advertise Item</h2>
 
             {
-                advertise.map(add => <AdvertiseHomeCard
-                    key={add._id}
-                    add={add}
-                ></AdvertiseHomeCard>)
+                advertise.length === 0 ?
+                    <></>
+                    :
+                    <>
+
+                        <h2 className='text-5xl text-center mb-5'>Advertise Item</h2>
+
+                        {
+                            advertise.map(add => <AdvertiseHomeCard
+                                key={add._id}
+                                add={add}
+                            ></AdvertiseHomeCard>)
+                        }
+
+
+                    </>
             }
 
 

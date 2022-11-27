@@ -8,13 +8,13 @@ const CategoriesCard = ({ categori }) => {
     return (
         <div>
 
-            <div className="card card-compact w-96 bg-cyan-300 shadow-xl">
+            <div className="card card-compact w-96 bg-green-100 shadow-xl">
                 <figure><img src={logo} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="text-5xl text-bold">{brandName}</h2>
                     <div className="card-actions justify-end">
                         <Link to={`/category/${brandName}`}>
-                            <button className="btn btn-warning">View Products</button>
+                            <button className="btn btn-accent">View Products</button>
                         </Link>
                     </div>
                 </div>

@@ -28,7 +28,7 @@ const HomeExtraSection = () => {
                         />
                     </div>
                     <p className="text-xl my-4 text-gray-500">
-                        "I was really happy for this site service, very trusted. if you want to buy a resell used laptop just go for it."
+                        " Really happy for this site service, very trusted. if you want to buy a used product just buy love this site."
                     </p>
                     <p className="italic">- Teresa May</p>
                 </div>

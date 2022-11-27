@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import { FaGoogle } from 'react-icons/fa';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -158,7 +159,9 @@ const SignUp = () => {
                 <p className='text-center mt-2'>Already have a account? <Link to="/login" className='text-success'>Please login</Link></p>
 
                 <div className="divider">OR</div>
-                <button onClick={handelGoogleSignIn} className='btn btn-warning w-full'>CONTINUE WITH GOOGLE</button>
+                <button onClick={handelGoogleSignIn} className='btn btn-warning w-full'>
+                    <FaGoogle className='mr-5 text-stone-50 text-3xl' />
+                    SignUp WITH GOOGLE</button>
             </div>
         </div>
     );

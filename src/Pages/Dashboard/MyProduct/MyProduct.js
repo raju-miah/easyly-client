@@ -96,7 +96,7 @@ const MyProduct = () => {
                         <h2 className='text-5xl text-center mt-3 mb-5'>You don't added any product</h2>
                         <div className='flex items-center justify-center'>
                             <Link to="/dashboard/addproduct">
-                                <button className='btn btn-warning'>Go Add Product</button>
+                                <button className='btn btn-accent'>Go Add Product</button>
                             </Link>
                         </div>
                     </>

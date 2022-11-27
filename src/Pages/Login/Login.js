@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import { FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -74,14 +75,6 @@ const Login = () => {
 
 
 
-
-
-
-
-
-
-
-
     return (
         <div className='mt-20 flex justify-center items-center'>
             <div className='w-96 p-7 border rounded-lg bg-green-100'>
@@ -118,7 +111,9 @@ const Login = () => {
                 <p className='text-center mt-2'>New to Easyly <Link to="/signup" className='text-success'>Create a new account?</Link></p>
 
                 <div className="divider">OR</div>
-                <button onClick={handelGoogleSignIn} className='btn btn-warning w-full'>CONTINUE WITH GOOGLE</button>
+                <button onClick={handelGoogleSignIn} className='btn btn-warning w-full'>
+                    <FaGoogle className='mr-5 text-stone-50 text-3xl' />
+                    Login WITH GOOGLE</button>
             </div>
         </div>
     );

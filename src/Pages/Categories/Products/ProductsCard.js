@@ -10,7 +10,7 @@ const ProductsCard = ({ pro, setBookingProduct }) => {
     return (
         <div className='mt-12'>
 
-            <div className="card lg:card-side bg-cyan-300 mx-12 shadow-xl">
+            <div className="card lg:card-side bg-green-100 mx-12 shadow-xl">
 
                 <img src={img} alt="Shoes" className="rounded-xl" />
 
@@ -29,7 +29,7 @@ const ProductsCard = ({ pro, setBookingProduct }) => {
                         <label
                             onClick={() => setBookingProduct(pro)}
                             htmlFor="book=now-modal"
-                            className="btn btn-warning">
+                            className="btn btn-accent">
                             BOOK NOW
                         </label>
                     </div>

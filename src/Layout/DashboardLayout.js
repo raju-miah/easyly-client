@@ -44,7 +44,7 @@ const DashboardLayout = () => {
                                     isBuyer && <>
 
                                         <li><Link to="/dashboard/myorder">
-                                            <button className='btn btn-warning'>My Orders</button>
+                                            <button className='btn btn-success'>My Orders</button>
                                         </Link></li>
 
                                     </>
@@ -53,16 +53,17 @@ const DashboardLayout = () => {
                                 {
                                     isAdmin && <>
                                         <li><Link to="/dashboard/allseller">
-                                            <button className='btn btn-warning'>All Seller</button>
+                                            <button className='btn btn-success'>All Seller</button>
                                         </Link></li>
 
                                         <li><Link to="/dashboard/allbuyer">
-                                            <button className='btn btn-warning'>All Buyer</button>
+                                            <button className='btn btn-success'>All Buyer</button>
                                         </Link></li>
 
-                                        {/* <li><Link to="/dashboard/allusers">
-                                            <button className='btn btn-warning'>All Buyer and Seller</button>
-                                        </Link></li> */}
+                                        <li><Link to="/dashboard/reported">
+                                            <button className='btn btn-success'>
+                                                Reported Product</button>
+                                        </Link></li>
                                     </>
                                 }
 
@@ -70,11 +71,11 @@ const DashboardLayout = () => {
                                     isSeller && <>
 
                                         <li><Link to="/dashboard/addproduct">
-                                            <button className='btn btn-warning'>Add Product</button>
+                                            <button className='btn btn-success'>Add Product</button>
                                         </Link></li>
 
                                         <li><Link to="/dashboard/myproduct">
-                                            <button className='btn btn-warning'>My Product</button>
+                                            <button className='btn btn-success'>My Product</button>
                                         </Link></li>
 
                                     </>
@@ -94,7 +95,7 @@ const DashboardLayout = () => {
                             isBuyer && <>
 
                                 <li><Link to="/dashboard/myorder">
-                                    <button className='btn btn-warning'>My Orders</button>
+                                    <button className='btn btn-success'>My Orders</button>
                                 </Link></li>
 
                             </>
@@ -104,17 +105,18 @@ const DashboardLayout = () => {
                             isAdmin && <>
 
                                 <li><Link to="/dashboard/allseller">
-                                    <button className='btn btn-warning'>All Seller</button>
+                                    <button className='btn btn-success'>All Seller</button>
                                 </Link></li>
 
 
                                 <li><Link to="/dashboard/allbuyer">
-                                    <button className='btn btn-warning'>All Buyer</button>
+                                    <button className='btn btn-success'>All Buyer</button>
                                 </Link></li>
 
-                                {/* <li><Link to="/dashboard/allusers">
-                                    <button className='btn btn-warning'>All Buyer and Seller</button>
-                                </Link></li> */}
+                                <li><Link to="/dashboard/reported">
+                                    <button className='btn btn-success'>
+                                        Reported Product</button>
+                                </Link></li>
 
                             </>
                         }
@@ -123,11 +125,11 @@ const DashboardLayout = () => {
                             isSeller && <>
 
                                 <li><Link to="/dashboard/addproduct">
-                                    <button className='btn btn-warning'>Add Product</button>
+                                    <button className='btn btn-success'>Add Product</button>
                                 </Link></li>
 
                                 <li><Link to="/dashboard/myproduct">
-                                    <button className='btn btn-warning'>My Product</button>
+                                    <button className='btn btn-success'>My Product</button>
                                 </Link></li>
 
                             </>
