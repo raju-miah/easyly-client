@@ -18,8 +18,10 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
 
 
+    // login email pass function 
+
     const handelLogin = data => {
-        console.log(data)
+        // console.log(data)
 
         setLoginError('');
 
@@ -36,6 +38,7 @@ const Login = () => {
             })
     }
 
+    // google login function
 
     const handelGoogleSignIn = () => {
         googleSignIn()
@@ -54,6 +57,7 @@ const Login = () => {
             })
     }
 
+    // save google user to database
 
     const saveGoogleUser = (name, email) => {
         const googleUser = { name, email };
@@ -87,7 +91,7 @@ const Login = () => {
                         </label>
                         <input type="email" {...register("email", {
                             required: 'Email Address is required'
-                        })} placeholder="Your Name" className="input input-bordered w-full max-w-xs" />
+                        })} placeholder="Your email" className="input input-bordered w-full max-w-xs" />
                         {errors.email && <p className='text-red-500'>{errors.email?.message}</p>}
                     </div>
 
@@ -98,7 +102,7 @@ const Login = () => {
                         <input type="password" {...register("password", {
                             required: 'Password is required',
                             minLength: { value: 6, message: "Password must be 6 characters or more longer" }
-                        })} placeholder="Your Name" className="input input-bordered w-full max-w-xs" />
+                        })} placeholder="Your password" className="input input-bordered w-full max-w-xs" />
                         {errors.password && <p className='text-red-500'>{errors.password?.message}</p>}
                     </div>
 

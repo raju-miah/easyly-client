@@ -6,6 +6,9 @@ const ProductsCard = ({ pro, setBookingProduct }) => {
 
     const { img, name, location, resllprice, originalprice, yearused, time, sellername, condition, description, phonenumber } = pro;
 
+
+    // report to admin function here
+
     const handelReport = report => {
 
         // console.log(report);
@@ -17,8 +20,7 @@ const ProductsCard = ({ pro, setBookingProduct }) => {
             sellername: report.sellername
         }
 
-        console.log(items);
-
+        // console.log(items);
 
         fetch('http://localhost:5000/report', {
             method: 'POST',

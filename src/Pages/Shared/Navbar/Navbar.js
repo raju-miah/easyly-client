@@ -6,6 +6,8 @@ const Navbar = () => {
 
     const { user, logOutUser } = useContext(AuthContext);
 
+    //user logout function 
+
     const handelLogOut = () => {
         logOutUser()
             .then(() => { })

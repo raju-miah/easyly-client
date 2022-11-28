@@ -3,6 +3,9 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const BookNowModal = ({ bookingProduct, setBookingProduct }) => {
+
+    // booking modal here
+
     const { name, resllprice, img } = bookingProduct;
 
     const { user } = useContext(AuthContext);

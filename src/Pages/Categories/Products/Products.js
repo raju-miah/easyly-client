@@ -5,8 +5,10 @@ import ProductsCard from './ProductsCard';
 
 const Products = () => {
 
+    // booking modal state
     const [bookingProduct, setBookingProduct] = useState(null);
 
+    // loaded data with loader
     const products = useLoaderData();
 
 

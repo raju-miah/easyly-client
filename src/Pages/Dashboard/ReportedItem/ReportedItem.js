@@ -5,6 +5,7 @@ import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 
 const ReportedItem = () => {
 
+    // load report data with react query
 
     const { data: report = [], isLoading, refetch } = useQuery({
         queryKey: ['report'],
@@ -20,6 +21,8 @@ const ReportedItem = () => {
     }
 
     // console.log(report)
+
+    // delete report function
 
     const handelDeleteReport = id => {
         console.log(id);
@@ -38,8 +41,6 @@ const ReportedItem = () => {
                 }
             })
     }
-
-
 
 
     return (

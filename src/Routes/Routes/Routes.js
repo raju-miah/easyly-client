@@ -14,7 +14,10 @@ import Home from "../../Pages/Home/Home/Home"
 import Login from "../../Pages/Login/Login"
 import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage"
 import SignUp from "../../Pages/SignUp/SignUp"
+import AdminRoute from "../AdminRoute/AdminRoute"
+import BuyerRoute from "../BuyerRoute/BuyerRoute"
 import PrivateRoute from "../PrivateRoute/PrivateRoute"
+import SellerRoute from "../SellerRoute/SellerRoute"
 
 export const router = createBrowserRouter([
     {
@@ -54,27 +57,27 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/myorder',
-                element: <MyOrders></MyOrders>
+                element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
             },
             {
                 path: '/dashboard/allseller',
-                element: <AllSeller></AllSeller>
+                element: <AdminRoute><AllSeller></AllSeller></AdminRoute>
             },
             {
                 path: '/dashboard/allbuyer',
-                element: <AllBuyer></AllBuyer>
+                element: <AdminRoute><AllBuyer></AllBuyer></AdminRoute>
             },
             {
                 path: '/dashboard/addproduct',
-                element: <AddProduct></AddProduct>
+                element: <SellerRoute><AddProduct></AddProduct></SellerRoute>
             },
             {
                 path: '/dashboard/reported',
-                element: <ReportedItem></ReportedItem>
+                element: <AdminRoute><ReportedItem></ReportedItem></AdminRoute>
             },
             {
                 path: '/dashboard/myproduct',
-                element: <MyProduct></MyProduct>
+                element: <SellerRoute><MyProduct></MyProduct></SellerRoute>
             }
         ]
     },

@@ -1,11 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
+import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 
 const AllBuyer = () => {
 
+    // loaded data with react query for buyer
 
-    const { data: users = [], refetch } = useQuery({
+    const { data: users = [], isLoading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/users');
@@ -14,6 +16,12 @@ const AllBuyer = () => {
         }
     })
 
+    if (isLoading) {
+        return <LoadingSpinner></LoadingSpinner>
+    }
+
+
+    // delete buyer function
 
     const handelDeleteBuyer = id => {
         console.log(id);

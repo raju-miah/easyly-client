@@ -13,6 +13,7 @@ const SignUp = () => {
 
     const navigate = useNavigate();
 
+    // user sign up function
 
     const handelSignUp = data => {
         console.log(data)
@@ -44,6 +45,8 @@ const SignUp = () => {
             })
     }
 
+    // google sign up function
+
     const handelGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
@@ -61,6 +64,8 @@ const SignUp = () => {
             })
     }
 
+
+    // save all email pass based user in data base
 
     const saveAllUserInfo = (name, email, role) => {
         const allUser = { name, email, role };
@@ -80,6 +85,8 @@ const SignUp = () => {
             })
     }
 
+
+    // save google user in database
 
     const saveGoogleUser = (name, email) => {
         const googleUser = { name, email };

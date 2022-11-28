@@ -5,6 +5,8 @@ import CategoriesCard from './CategoriesCard';
 
 const Categories = () => {
 
+    // get the home page category here with react query
+
     const { data: category, isLoading } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {

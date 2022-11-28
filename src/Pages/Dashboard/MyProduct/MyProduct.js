@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
+import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 
 const MyProduct = () => {
 
@@ -10,7 +11,7 @@ const MyProduct = () => {
 
     // used react query here for get seller added product
 
-    const { data: myproduct = [], refetch } = useQuery({
+    const { data: myproduct = [], isLoading, refetch } = useQuery({
         queryKey: ['myproduct', user?.email],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/myproduct?email=${user?.email}`);
@@ -19,9 +20,14 @@ const MyProduct = () => {
         }
     })
 
+    if (isLoading) {
+        return <LoadingSpinner></LoadingSpinner>
+    }
+
+    // delete product function
 
     const handelDeleteProduct = id => {
-        console.log(id);
+        // console.log(id);
 
         fetch(`http://localhost:5000/myproduct/${id}`, {
             method: 'DELETE',
@@ -71,19 +77,7 @@ const MyProduct = () => {
             id: addId,
         }
 
-        console.log(showAdd)
-
-
-        // , _id
-        // add.id = _id
-
-        // setDis(true);
-        // setDis(true);
-        // delete add._id
-        // const body = {
-        //     ...add
-        // }
-        // console.log(body)
+        // console.log(showAdd)
 
         fetch('http://localhost:5000/advertise', {
             method: 'POST',

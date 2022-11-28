@@ -12,6 +12,8 @@ const AddProduct = () => {
     const navigate = useNavigate();
 
 
+    // add product function here
+
     const handelAddProducts = data => {
         data.email = user.email;
         console.log(data);
@@ -118,7 +120,7 @@ const AddProduct = () => {
                             <label className="label">
                                 <span className="label-text text-xl">Product Description</span>
                             </label>
-                            <textarea {...register("description")} placeholder="About you"
+                            <textarea {...register("description")}
                                 className="textarea textarea-bordered w-full h-[145px]" />
                             {errors.description && <p className='text-red-500'>{errors.description?.message}</p>}
                         </div>
