@@ -72,7 +72,7 @@ const SignUp = () => {
 
         console.log(allUser)
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://easyly-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -92,7 +92,7 @@ const SignUp = () => {
         const googleUser = { name, email };
         console.log(googleUser);
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://easyly-server.vercel.app/users', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

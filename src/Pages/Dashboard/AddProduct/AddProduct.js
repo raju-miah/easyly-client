@@ -19,7 +19,7 @@ const AddProduct = () => {
         console.log(data);
 
 
-        fetch('http://localhost:5000/addproducts', {
+        fetch('https://easyly-server.vercel.app/addproducts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

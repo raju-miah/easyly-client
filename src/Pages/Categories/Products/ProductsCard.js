@@ -22,7 +22,7 @@ const ProductsCard = ({ pro, setBookingProduct }) => {
 
         // console.log(items);
 
-        fetch('http://localhost:5000/report', {
+        fetch('https://easyly-server.vercel.app/report', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

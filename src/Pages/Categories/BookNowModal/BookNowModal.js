@@ -34,7 +34,7 @@ const BookNowModal = ({ bookingProduct, setBookingProduct }) => {
 
         console.log(productBooking);
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://easyly-server.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

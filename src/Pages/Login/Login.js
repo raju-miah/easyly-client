@@ -63,7 +63,7 @@ const Login = () => {
         const googleUser = { name, email };
         console.log(googleUser);
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://easyly-server.vercel.app/users', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

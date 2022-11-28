@@ -10,7 +10,7 @@ const Categories = () => {
     const { data: category, isLoading } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/category');
+            const res = await fetch('https://easyly-server.vercel.app/category');
             const data = await res.json();
             return data;
         }

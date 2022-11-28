@@ -5,11 +5,12 @@ import useAdmin from '../hooks/useAdmin';
 import useBuyer from '../hooks/useBuyer';
 import useSeller from '../hooks/useSeller';
 import Footer from '../Pages/Shared/Footer/Footer';
+import LoadingSpinner from '../Pages/Shared/LoadingSpinner/LoadingSpinner';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 
 const DashboardLayout = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
 
 
     const [isAdmin] = useAdmin(user?.email);
@@ -18,6 +19,10 @@ const DashboardLayout = () => {
 
     const [isSeller] = useSeller(user?.email);
 
+
+    if (loading) {
+        return <LoadingSpinner></LoadingSpinner>
+    }
 
     // console.log(isAdmin);
     // console.log(user.email);

@@ -9,7 +9,7 @@ const AdvertiseHome = () => {
     const { data: advertise = [], isLoading } = useQuery({
         queryKey: ['advertise'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/advertise');
+            const res = await fetch('https://easyly-server.vercel.app/advertise');
             const data = await res.json();
             return data;
         }

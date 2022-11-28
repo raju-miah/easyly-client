@@ -14,7 +14,7 @@ const MyProduct = () => {
     const { data: myproduct = [], isLoading, refetch } = useQuery({
         queryKey: ['myproduct', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myproduct?email=${user?.email}`);
+            const res = await fetch(`https://easyly-server.vercel.app/myproduct?email=${user?.email}`);
             const data = await res.json();
             return data
         }
@@ -29,7 +29,7 @@ const MyProduct = () => {
     const handelDeleteProduct = id => {
         // console.log(id);
 
-        fetch(`http://localhost:5000/myproduct/${id}`, {
+        fetch(`https://easyly-server.vercel.app/myproduct/${id}`, {
             method: 'DELETE',
 
         })
@@ -42,7 +42,7 @@ const MyProduct = () => {
                 }
             })
 
-        fetch(`http://localhost:5000/advertise/${id}`, {
+        fetch(`https://easyly-server.vercel.app/advertise/${id}`, {
             method: 'DELETE',
 
         })
@@ -79,7 +79,7 @@ const MyProduct = () => {
 
         // console.log(showAdd)
 
-        fetch('http://localhost:5000/advertise', {
+        fetch('https://easyly-server.vercel.app/advertise', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

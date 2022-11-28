@@ -10,7 +10,7 @@ const ReportedItem = () => {
     const { data: report = [], isLoading, refetch } = useQuery({
         queryKey: ['report'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/report');
+            const res = await fetch('https://easyly-server.vercel.app/report');
             const data = await res.json();
             return data;
         }
@@ -28,7 +28,7 @@ const ReportedItem = () => {
         console.log(id);
 
 
-        fetch(`http://localhost:5000/report/${id}`, {
+        fetch(`https://easyly-server.vercel.app/report/${id}`, {
             method: 'DELETE',
 
         })

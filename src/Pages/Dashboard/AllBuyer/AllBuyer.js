@@ -10,7 +10,7 @@ const AllBuyer = () => {
     const { data: users = [], isLoading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users');
+            const res = await fetch('https://easyly-server.vercel.app/users');
             const data = await res.json();
             return data;
         }
@@ -27,7 +27,7 @@ const AllBuyer = () => {
         console.log(id);
 
 
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://easyly-server.vercel.app/users/${id}`, {
             method: 'DELETE',
 
         })
