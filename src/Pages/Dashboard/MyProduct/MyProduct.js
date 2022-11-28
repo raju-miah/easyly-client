@@ -51,8 +51,28 @@ const MyProduct = () => {
     }
 
 
-    const handelAdvertiseProduct = (add) => {
+    const handelAdvertiseProduct = (add, addId) => {
         // console.log(add)
+
+        const showAdd = {
+            brandName: add.brandName,
+            condition: add.condition,
+            description: add.description,
+            email: add.email,
+            img: add.img,
+            location: add.location,
+            name: add.name,
+            originalprice: add.originalprice,
+            phonenumber: add.phonenumber,
+            resllprice: add.resllprice,
+            sellername: add.sellername,
+            time: add.time,
+            yearused: add.yearused,
+            id: addId,
+        }
+
+        console.log(showAdd)
+
 
         // , _id
         // add.id = _id
@@ -70,7 +90,7 @@ const MyProduct = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(add)
+            body: JSON.stringify(showAdd)
         })
             .then(res => res.json())
             .then(data => {
@@ -141,7 +161,9 @@ const MyProduct = () => {
                                             <td>{product.name}</td>
                                             <td>${product.resllprice}</td>
                                             <td>
-                                                Available or Sold
+                                                <button className='btn btn-sm btn-success'>
+                                                    Available
+                                                </button>
                                             </td>
 
                                             <td>
@@ -149,7 +171,8 @@ const MyProduct = () => {
                                                 {/* , product._id */}
 
                                                 <button
-                                                    onClick={() => { handelAdvertiseProduct(product) }}
+                                                    onClick={() => { handelAdvertiseProduct(product, product._id) }}
+
                                                     className='btn btn-warning'>Advertise</button>
                                             </td>
 

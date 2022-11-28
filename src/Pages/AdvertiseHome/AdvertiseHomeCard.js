@@ -21,16 +21,11 @@ const AdvertiseHomeCard = ({ add }) => {
                     <p className='font-bold'>Original Price: ${originalprice}</p>
                     <p className='font-bold'>Year Of Use: {yearused} Years</p>
                     <p className='font-bold'>Condition: {condition}</p>
-                    <p className='font-bold'>Time: {time}PM</p>
+                    <p className='font-bold'>Posted on: {time}</p>
                     <p className='font-bold'>Seller Name: {sellername}</p>
                     <p className='font-bold'>Phone: {phonenumber}</p>
                     <p><strong>Details:</strong> {description}</p>
-                    <div className="card-actions">
-                        <label
-                            className="btn btn-warning">
-                            BOOK Now
-                        </label>
-                    </div>
+
                 </div>
             </div>
 
