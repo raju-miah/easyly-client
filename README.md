@@ -1,6 +1,6 @@
 # Project Name: Easyly (Used Products Resale Market)
 
-# Live-Site Link: 
+# Live-Site Link: https://easyly-9efc5.web.app/
 
 adminEmail: easyly@admin.com
 
